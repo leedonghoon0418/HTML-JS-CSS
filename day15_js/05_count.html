@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>count 만들기</title>
+</head>
+<body>
+    <!-- 
+        button을 2개 준비
+        + / -
+          0 => h1 / 0보다는 안내려가게
+        
+     -->
+     
+     <h1 id="num">
+        0
+     </h1>
+     <div>
+        <button type="button" id="incre">+</button>
+        <button type="button" id="decre">-</button>
+     </div>
+    
+     
+     <script>
+       const num = document.getElementById('num');
+       const incre = document.getElementById('incre');
+       const decre = document.getElementById('decre');
+
+       incre.addEventListener('click',function(){
+            let currVal = Number(num.innerText);
+            console.log(currVal);
+            num.innerText = currVal+1;
+       })
+       decre.addEventListener('click',function(){
+        let currVal = Number(num.innerText);
+            console.log(currVal);
+        if(currVal<=0){
+            num.innerText=0;
+        }else{
+            num.innerText = currVal -1;
+        }
+       })
+     </script>
+</body>
+</html> 

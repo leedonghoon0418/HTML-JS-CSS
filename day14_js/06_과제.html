@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>구구단 영역(2*1=2 ~ 9*9=81)내에서 랜덤으로 문제를 내면 정답을 맞추는 로직</h1>
+    <ul>
+        <li>총 문제는 10문제 출제</li>
+        <li>문제를 풀 때 정답, 오답의 결과를 나타냄</li>
+        <li>총 10개의 문제중 정답률을 출력</li>
+    </ul>
+
+    <button type="button" onclick="make()">문제출제</button>
+
+    <ol id="ol"></ol>
+
+    <button type="button" onclick="result1()">정답확인</button>
+    <h3 id="rrr"></h3>
+
+
+    <script>
+        let result = [];
+        let myResult = [];
+        let answer = 0;
+        
+    
+        function make(){
+             let firNum; 
+             let sedNum;
+             let ol = document.getElementById('ol');
+
+            for(let i=0; i<10; i++){
+                firNum = Math.floor(Math.random()*9)+1;
+                sedNum = Math.floor(Math.random()*9)+1;
+                result[i] = firNum * sedNum;
+                console.log(result);
+                ol.innerHTML +=`<li> ${firNum} x ${sedNum} = <input type="text" id = "a${i}"></li>`;
+            }
+        }
+
+        function result1(){
+            for(let i=0; i<10; i++){
+                myResult[i] = document.getElementById(`a${i}`).value;
+            }
+
+            for(let i=0; i<10; i++){
+                if(result[i]==myResult[i]){
+                    document.getElementById(`a${i}`).style.backgroundColor= 'green';
+                    answer++;
+                }else{
+                    document.getElementById(`a${i}`).style.backgroundColor= 'red';
+                }
+            }
+
+            document.getElementById('rrr').innerText=
+            `맞춘갯수 : ${answer} 개, 정답률 : ${answer / 10 * 100} %`
+           
+        }
+
+        
+        
+
+
+    </script>
+</body>
+</html>

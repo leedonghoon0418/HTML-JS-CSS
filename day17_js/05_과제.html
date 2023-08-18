@@ -1,0 +1,207 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<title>과제</title>
+
+<style>
+body{
+    background-color: rgb(196, 216, 234);
+}
+#header{
+text-align: center;
+margin-bottom: 150px;
+}
+
+#header .mainName{
+
+font-size: 70px;
+
+font-weight: 700;
+
+
+}
+
+#header .subName{
+
+font-size: 20px;
+
+}
+
+#section1{
+
+float: left;
+
+width: 33.3%;
+
+text-align: center;
+
+}
+
+#section2{
+
+float: left;
+
+width: 33.3%;
+
+text-align: center;
+
+}
+
+#section3{
+
+float: left;
+
+width: 33.3%;
+
+text-align: center;
+
+}
+h1{
+font-family: 'Pacifico', cursive;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<div id="header"></div>
+
+
+<div id="section1"></div>
+
+<div id="section2"></div>
+
+<div id="section3"></div>
+
+
+
+<script>
+
+
+fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+
+.then(resp => resp.json())
+
+.then(json => makeText(json))
+
+
+function makeText(json){
+
+document.getElementById('header').innerHTML +=
+
+`<h1 class="mainName"> ${json.squadName}</h1>`;
+
+
+document.getElementById('header').innerHTML +=
+
+`<h3 class="subName"> Hometown : ${json.homeTown} // Formed : ${json.formed} </h3>`
+
+
+document.getElementById('section1').innerHTML +=
+
+`<h1 class="name1">${json.members[0].name}</h1>`
+
+document.getElementById('section1').innerHTML +=
+
+`<p>Age : ${json.members[0].age}</p>`
+
+document.getElementById('section1').innerHTML +=
+
+`<p>Secret Identity : ${json.members[0].secretIdentity}</p>`
+
+document.getElementById('section1').innerHTML +=
+
+`<p>Superpower : </p>`
+
+document.getElementById('section1').innerHTML +=
+
+`<li>${json.members[0].powers[0]}</li>`
+
+document.getElementById('section1').innerHTML +=
+
+`<li>${json.members[0].powers[1]}</li>`
+
+document.getElementById('section1').innerHTML +=
+
+`<li>${json.members[0].powers[2 ]}</li>`
+
+
+document.getElementById('section2').innerHTML +=
+
+`<h1>${json.members[1].name}</h1>`
+
+document.getElementById('section2').innerHTML +=
+
+`<p>Age : ${json.members[1].age}</p>`
+
+document.getElementById('section2').innerHTML +=
+
+`<p>Secret Identity : ${json.members[1].secretIdentity} </p>`
+
+document.getElementById('section2').innerHTML +=
+
+`<p>Superpower : </p>`
+
+document.getElementById('section2').innerHTML +=
+
+`<li>${json.members[1].powers[0]}</li>`
+
+document.getElementById('section2').innerHTML +=
+
+`<li>${json.members[1].powers[1]}</li>`
+
+document.getElementById('section2').innerHTML +=
+
+`<li>${json.members[1].powers[2]}</li>`
+
+
+document.getElementById('section3').innerHTML +=
+
+`<h1>${json.members[2].name}</h1>`
+
+document.getElementById('section3').innerHTML +=
+
+`<p>Age : ${json.members[2].age}</p>`
+
+document.getElementById('section3').innerHTML +=
+
+`<p>Secret Identity : ${json.members[2].secretIdentity} </p>`
+
+document.getElementById('section3').innerHTML +=
+
+`<p>Superpower : </p>`
+
+document.getElementById('section3').innerHTML +=
+
+`<li>${json.members[2].powers[0]}</li>`
+
+document.getElementById('section3').innerHTML +=
+
+`<li>${json.members[2].powers[1]}</li>`
+
+document.getElementById('section3').innerHTML +=
+
+`<li>${json.members[2].powers[2 ]}</li>`
+
+}
+
+</script>
+
+</body>
+
+</html>
+
+﻿

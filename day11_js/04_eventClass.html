@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자색 바꾸기</title>
+    <style>
+        .java{
+            color: rgb(255, 0, 43);
+            font-size: 30px;
+            background-color: rgb(17, 0, 255);
+        }
+    </style>
+
+</head>
+<body>
+    <h1 id="heading" class="">
+        javaScript
+    </h1>
+    <h3 id="main">
+        위의 글자를 클릭해보세요.
+    </h3>
+
+    <script>
+        let heading = document.getElementById("heading");
+        heading.onclick = function(){
+            heading.classList.toggle('java');
+        }
+        // toggle : 추가 제거 가능
+        // add : 추가만 가능.
+
+
+        let main = document.getElementById('main');
+        
+        main.onclick = function(){
+            main.style.setProperty("font-size","30px");
+            // css의 스타일 속성 변경 ("속성명", "값");
+        }
+    </script>
+</body>
+</html>

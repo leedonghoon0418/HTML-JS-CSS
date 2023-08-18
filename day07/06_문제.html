@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(/image/room.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+        .rgg{
+            background-color: rgba(0, 0, 0, 8);
+        }
+        .mid{
+            color: white;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 70px;
+            font-weight: 700;
+        }
+        .dis{
+            float: left;
+            margin-top: 30px;
+            margin-left: 50px;
+            color: rgb(255, 255, 255);
+            font-size: 40px;
+        }
+        .top>ul>li{
+            float: right;
+            display: inline-block;
+            margin-right: 20px ;
+            color: white;
+            font-weight: 700;
+            list-style: none;
+
+        }
+        .bot>a{
+            border: 1px solid green;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            font-size: 20px;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .bot>a:hover{
+            background-color: white;
+            color: green;
+            cursor: pointer;
+        }
+        .top>ul>li:hover{
+            color: gray;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="rgg"></div>
+    <div class="top"> 
+        <p class="dis">DESIGN</p>
+
+        <ul>
+            <li>HOME</li>
+            <li>LOING IN</li>
+            <li>SIGN UP</li>
+            <li>BOARD</li>
+        </ul>
+
+    </div>
+    
+    <div class="mid">
+        <p>Welcome to Front-End <br> World!</p>
+    </div>
+    <div class="bot">
+        <a href="#">Learn More</a>
+    </div>
+</body>
+</html>

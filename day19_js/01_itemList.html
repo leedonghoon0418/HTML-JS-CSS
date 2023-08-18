@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #wapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+        h2{
+            text-align: center;
+        }
+        form{
+            text-align: center;
+            background-color: rgb(128, 223, 223);
+            color: white;
+            padding: 30px 40px;
+        }
+        input{
+            border: none;
+            outline: none;
+            width: 450px;
+            font-size: 15px;
+            padding: 10px;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            background-color: rgb(196, 210, 224);
+            box-shadow: 2px 2px 5px;
+            cursor: pointer;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul li{
+            cursor: pointer;
+            padding: 12px 8px 12px 40px;
+            background-color: rgb(220, 194, 236);
+            font-size: 18px;
+            position: relative;
+        }
+        ul li:nth-child(odd){
+            background-color: rgb(201, 228, 211);
+        }
+        ul li:hover{
+            background-color: rgb(136, 127, 194);
+        }
+        .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 12px 12px;
+        }
+        .close:hover{
+            background-color: cornflowerblue;
+            color: rgb(250, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div id="wapper">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="">
+            <input type="text" id="item" autofocus="true">
+            <button type="button" id="add">추가</button>
+        </form>
+        <div>
+            <ul id="itemList"></ul>
+        </div>
+    </div>
+
+    <script>
+        let itemList = [];
+        let addBtn = document.getElementById('add');
+
+        addBtn.addEventListener('click', addList);
+
+        function addList(){
+            // item 추가
+            let item = document.getElementById('item').value;
+            if(item != null){
+                itemList.push(item);
+                // 값이 추가되고 난 후 input 값 초기화
+                document.getElementById('item').value = '';
+                // 추가 후 포커스 얻기
+                document.getElementById('item').focus();
+            }
+            console.log(itemList);
+            showList();
+        }
+
+        function showList(){
+            // item을 화면에 표시
+            let list = '';
+            for(let i=0; i<itemList.length; i++){
+                list += `<li id ="list${i}">${itemList[i]}<span id="${i}" class="close">X</span></li>`
+            }
+            // 리스트 내용 표시
+            document.getElementById("itemList").innerHTML = list;
+            
+            // close에 배열 형태로 추가
+            let remove = document.querySelectorAll('.close');
+            console.log(remove);
+
+            // remove에 버튼을 클릭하면 removeList()를 호출
+            for(let i=0; i<remove.length; i++){
+                remove[i].addEventListener('click', removeList);
+            }
+        }
+
+        function removeList(){
+            // item을 삭제
+            // this = 클릭한 버튼 의미 /  getAttribute  속성 가져오기
+            let id = this.getAttribute('id'); 
+            console.log(id);
+            itemList.splice(id,1); // splice = > id 번지의 값 1개를 잘라내기
+            console.log(itemList);
+            showList();
+        }
+    </script>
+</body>
+</html>

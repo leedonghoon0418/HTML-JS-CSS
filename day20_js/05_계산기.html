@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 전경환</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #1f1f1f1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calculator{
+            border: 1px solid #333;
+            background-color: #ccc;
+            padding: 5px;
+        }
+        .calculator form{
+            display: grid;
+            grid-template-columns: repeat(4, 65px);
+            grid-auto-rows: 65px;
+            gap: 5px;
+        }
+        .calculator form button, input{
+            font-size: 1rem;
+            /* font-weight: bold; */
+            border: 2px solid black;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .calculator form button:hover{
+            box-shadow: 1px 1px 2px #333;
+        }
+        .calculator form .operator{
+            background-color: orange;
+        }
+        .calculator form .dot{
+            background-color: greenyellow;
+        }
+        .calculator form input[type='text']{
+            grid-column: span 4;
+            text-align: right;
+            background-color: white;
+        }
+        .calculator form .clear{
+            background-color: orangered;
+            grid-column: span 3;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .calculator form .result{
+            grid-column: span 2;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 소수점 가능하게... C누르면 삭제  -->
+    <!-- 호버하면 그림자 생김 -->
+    <!-- 다 버튼입니다.
+    
+    전체 디브 에 폼테크 그안에 다 버튼 인풋하나 
+값은 밸류 값으로 맞춰놈
+
+색깔을 맞추기 위해 스타일 달아놓음.-->
+<div class="calculator">
+    <form name="forms">
+        <input type="text" id="output" name="output" value = "">
+        <button type="button" class="clear" value="C"  onclick="document.forms.output.value=''">C</button>
+        <button type="button" class="operator" value="/" onclick="document.forms.output.value+='/'">/</button>
+        <button type="button" class="number" value="1" onclick="document.forms.output.value+='1'">1</button>
+        <button type="button" class="number" value="2" onclick="document.forms.output.value+='2'">2</button>
+        <button type="button" value="3" onclick="document.forms.output.value+='3' " >3</button>
+        <button type="button" class="operator"  onclick="document.forms.output.value+='*'" value="*">*</button>
+        <button type="button" value="4" onclick="document.forms.output.value+='4'" >4</button>
+        <button type="button" value="5" onclick="document.forms.output.value+='5'">5</button>
+        <button type="button" value="6" onclick="document.forms.output.value+='6'">6</button>
+        <button type="button" class="operator" value="+"  onclick="document.forms.output.value+='+'">+</button>
+        <button type="button" value="7" onclick="document.forms.output.value+='7'">7</button>
+        <button type="button" value="8" onclick="document.forms.output.value+='8'">8</button>
+        <button type="button" value="9" onclick="document.forms.output.value+='9'">9</button>
+        <button type="button" class="operator" value="-"  onclick="document.forms.output.value+='-'">-</button>
+        <button type="button" class="dot" value="."  onclick="document.forms.output.value+='.'">.</button>
+        <button type="button" value="0"  onclick="document.forms.output.value+='0'">0</button>
+        <button type="button" class="operator result" value="=" id =rs>=</button>
+
+    </form>
+</div>
+<!-- <h3 id="info">5+6</h3> -->
+<script>
+    // let number1 = document.getElementsByClassName("number")[0];
+
+        rs.addEventListener("click",function(){
+            let output = 0; 
+            output = document.getElementById('output').value
+            if (output.value == null){
+                output.value = 0;
+                // console.log(output);
+                // let test2 = $("#output" + type).val();
+
+                // let test2= eval(output);
+                let test2 = new Function( 'return ' + output )(); //홑따옴표 제거함수 eval()대체
+                output = test2;
+                
+                // alert('1+1+1+1');
+
+
+                // var res = eval( result ); 
+                // 대신에 
+                // var res = ( new Function( 'return ' + result ) )(); 
+                // [출처] 자바스크립트 eval() , javascript eval , eval 대체, eval 대신|작성자 shkim
+
+                
+                document.getElementById("output").value = output;
+            }            
+        })
+</script>
+</body>
+</html>.

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map 예제</title>
+</head>
+<body>
+    <!-- 
+        input 버튼 2개 생성
+        과목 , 점수
+        추가 > map 추가
+        출력 > map 을 출력 ul > li 로 출력
+        결과버튼 > 합계 버튼 평가 (80이상 통과 아니면 탈락) > h3태그에
+     -->
+
+    <form action="">     
+    과목 : <input type="text" id="subject"> <br>
+    점수 : <input type="text" id="rank"> <br>
+    </form>
+
+    <br>
+    <button type="button" id="addMap">추가</button>
+    <button type="button" id="printMap">출력</button>
+    <button type="button" id="resultMap">결과</button>
+
+     
+        <ul id="result"></ul>
+        <h3 id="result2"></h3>
+     
+    
+
+     <script>
+        let count =0;
+        
+        const myMap = new Map();
+
+        addMap.addEventListener('click',function(){
+            let subject = document.getElementById('subject').value;
+            let rank = document.getElementById('rank').value;
+            myMap.set(subject,rank);
+            console.log(myMap);
+        });
+
+        printMap.addEventListener('click',function(){
+            myMap.forEach(function(e,i){
+            console.log(i,e);
+            document.getElementById('result').innerHTML +=
+            `<li>과목 : ${i} , 점수 : ${e}</li>`;
+        })
+        });
+
+        resultMap.addEventListener('click',function(){
+            let sum = 0;
+            let avg = 0;
+
+            myMap.forEach(function(e,i){
+                sum += Number(e);
+            })
+            avg = (sum / myMap.size);
+            ranking = '';
+            if(avg >= 80){
+                ranking = '통과';
+            }else{
+                ranking = '탈락';
+            }
+
+            document.getElementById('result2').innerText=
+            `합계 : ${sum}, 평균 : ${avg} , 합격여부 : ${ranking}`;
+
+        })
+        
+
+
+
+
+
+     </script>
+</body>
+</html>

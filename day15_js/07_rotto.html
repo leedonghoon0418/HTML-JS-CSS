@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 1 ~ 45 까지의 중복되지 않는 숫자 6개가 랜덤으로 추출 후 순서대로 출력하기 단, set 객체 사용할것</h1>
+
+    <button type="button" onclick="random()">랜덤번호 6개 출력하기</button>
+    <h1 id="a1"></h1>
+
+    <button type="button" onclick="rotto()">당첨번호 7개(마지막은 보너스) 출력하기</button>
+    <h1 id="a2"></h1>
+
+    <button type="button" onclick="result()">결과 확인</button>
+    <h1></h1>
+
+
+
+    <script>
+        const rottoMy = new Set([]); //내가찍은거
+        const rottoRan = new Set([]); //로또당첨번호
+
+        function random(){
+            while(rottoMy.size != 6){
+                let crRan = Math.floor(Math.random()*45)+1;
+                rottoMy.add(crRan);
+                document.getElementById('a1').innerText +=
+                `${crRan}번 `;
+            }
+            
+           console.log(rottoMy);
+        }
+        function rotto(){
+            while(rottoRan.size != 7){
+                let crRan = Math.floor(Math.random()*45)+1;
+                rottoRan.add(crRan);
+                document.getElementById('a2').innerText +=
+                `${crRan}번 `;
+            }
+           console.log(rottoRan);
+        }
+        function result(){
+            let money = 0;
+            let jeckpot = "";
+            switch(money){
+                case 1 : jeckpot = "꽝";
+                case 2 : jeckpot = "꽝";
+                case 3 : jeckpot = "5등";
+                case 4 : jeckpot = "4등";
+                case 5 : jeckpot = "3등";
+                case 6 : jeckpot = "당첨";
+            }
+
+            let a = [];
+            let b = [];
+            
+            a.push(rottoMy);
+            b.push(rottoRan);
+            
+            for(const myNum of a){
+                console.log(myNum);
+                for(const ranNum of b){
+                    console.log(ranNum);
+                    for(let i=0; i<7; i++){
+                        if(rottoMy[i] == myNum[1]){
+                            money++;
+                            console.log(money);
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+       
+
+
+    
+    </script>
+</body>
+</html>

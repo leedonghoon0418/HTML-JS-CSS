@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Up Down Game
+    </h1>
+    <ol>
+        <li>
+            랜덤 숫자 만들기 버튼을 클릭하면 컴퓨터가 랜덤으로 1~99(포함)의 숫자 1개를 생성한다.
+        </li>
+        <li>
+            숫자가 생성되면 컴퓨터가 랜덤으로 숫자를 생성하였습니다라는 안내 문구가 출력된다.
+        </li>
+        <li>
+            input란에 1~99(포함)숫자를 입력하고 맞추기라는 버튼을 클릭하면
+        </li>
+        <li>
+            컴퓨터의 숫자보다 높은숫자이면 Down을 출력, 낮은 숫자면 Up을 출력
+        </li>
+        <li>
+            컴퓨터의 숫자를 맞추면 정답입니다~ 컴퓨터 숫자는 ? 이였습니다 라는 메세지 출력
+        </li>
+    </ol>
+    <h1>
+        <button type="button" id="ranBtn" onclick="computerNum();">랜덤 숫자 생성 버튼</button>
+        <button type="button" onclick="window.location.reload();">다시시도</button>
+    </h1>
+    <h3 id="printMsg"></h3>
+    <h1>
+        <input type="text" id="myGuess">
+        <button type="button" id="guessBtn" onclick="compareNum2();">정답!!</button>
+    </h1>
+    <h3 id="result"></h3>
+
+
+
+
+    <script> 
+        let comRandom = 0;
+        let myNum = 0;
+        let count = 1;
+        console.log(comRandom);
+
+        function computerNum(){
+            comRandom = Math.floor(Math.random()*50)+1;
+            console.log(comRandom);
+            document.getElementById('printMsg').innerText=
+            `랜덤수가 생성되었습니다`;
+        }
+
+        function compareNum2(){
+           myNum = document.getElementById('myGuess').value;
+
+           if(count==5){
+            document.getElementById('result').innerText=
+            `턴을 모두 소진하셨습니다.`
+            return; 
+           }
+           
+           if(myNum == comRandom){
+            document.getElementById('result').innerText=
+            `정답입니다 ~ ${count}회 걸리셨습니다.`;
+
+           }else if(myNum < comRandom){
+            document.getElementById('result').innerText=
+            `UP ${count}회`;
+            count++;
+           }else if(myNum > comRandom){
+            document.getElementById('result').innerText=
+            `Down ${count}회`;
+            count++;
+           }
+
+           
+        }
+
+
+
+    </script>
+</body>
+</html>

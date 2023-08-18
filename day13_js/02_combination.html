@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array & Object 조합</title>
+</head>
+<body>
+    <h1>
+        데이터를 다룰 때 배열과 객체를 혼용하여 다루는 경우가 많음
+    </h1>
+    <ul>
+        <li>
+            배열안에 객체를 저장 그 객체 안에 다시 배열이 저장되어 있는 형태
+        </li>
+        <li>
+            이러한 조합의 형태에서는 for of , for in 을 적절히 사용할 수 있어야 함
+        </li>
+        <li>
+            for of : 배열을 탐색 (Array)
+            for(저장변수 of 배열)
+        </li>
+        <li>
+            for in : 객체를 탐색 (Object)
+            for(키를 저장할 변수 in 객체){
+                객체명[키네임]; => value 추출
+            }
+            
+        </li>
+    </ul>
+    <script>
+        const memberObject = {
+            name : "kim",
+            age : 20,
+            married : false,
+            fovors : ["coffee", "game", "movie", "car", "etc.."],
+        };
+        console.log(memberObject);
+        
+        const people=[];
+        //people 에 memberObject를 5명 추가
+        for(let i=0; i<5; i++){
+            let copy = Object.assign({}, memberObject);
+            people.push(copy);
+
+        }
+        
+        people[1].name = "pack";      
+        people[2].name = "hong";
+        people[3].name = "lee";
+        people[4].name = "choi";
+
+        people[1].age = 25;
+        people[2].age = 45;
+        people[3].age = 65;
+        people[4].age = 15;
+
+        people[1].married = true;
+        people[3].married = true;
+        people[4].married = true;
+
+        console.log(people);
+        console.log("---------------------");
+        //people 배열 탐색 for of
+        for(let member of people){
+            console.log(member); //각각의 Object {}로 분리
+            //object 탐색 => for in 사용
+            for(let keyName in member){ 
+                console.log(keyName);
+                console.log(member[keyName]);           
+                //객체 안의 배열 탐색
+                if(keyName == 'favors'){
+                    for(let favor of member[keyName])
+                    console.log(favor);
+                }else{
+                    console.log(keyName);
+                    console.log(member[keyName]);
+                }
+            }
+        }
+        console.log("---------------------");
+
+        // Object를 생성해서 배열에 5개 복사하여 등록
+        // Object를 탐색
+        // 
+        const music = [];
+
+        const musician={
+            name : "IU",
+            age : 31,
+            addr : "seoul",
+            playList:{
+                first : "너랑나",
+                second : "좋은날",
+                third : "밤편지",
+            },
+        };
+        
+        for(let i=0; i<5; i++){
+            let copy = Object.assign({}, musician);
+            music.push(copy);
+        }
+        
+
+        console.log("---------------------");
+        console.log(music);
+
+        for(const m of music){
+            console.log("--music 배열 안 하나의 객체--")
+            console.log(m); // 객체
+            for(const m2 in m){
+                console.log("m2는 m객체의 key")
+                console.log(m2);
+                console.log(m[m2]); // value
+                //playList 는 value 가 객체 => 객체를 탐색
+                if(m2 == 'playList'){
+                    for(const m3 in m[m2]){
+                        console.log(m3); // m[m2]의 keyName
+                        console.log(m[m2][m3]); //m[m2][m3] value 찍을때
+                    }
+                }
+
+            }
+        }
+        
+    </script>
+</body>
+</html>

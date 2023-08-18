@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이중 반복문</title>
+</head>
+<body>
+    <h1>
+        구구단을 출력 2 ~ 9 단까지 출력하기 
+    </h1>
+    n단 출력 : <input type="text" id="dan">
+    <button type="button" onclick="bt()">구구단 출력</button>
+    <h3 id="result"></h3>
+
+
+
+    <script>
+        function bt(){
+
+         let dan = document.getElementById('dan').value;
+
+         for(let i=1; i<=9; i++){
+            document.getElementById('result').innerText +=
+            `${dan} x ${i} = ${dan*i}
+            
+            `;
+          }
+          
+        //for(let i=2; i<=9; i++){
+          //  for(let j=1; j<=9; j++){
+            //    console.log(`${i}*${j}=${i*j}`);
+              //  document.getElementById('result').innerText
+                //+= `${i} x ${j} = ${i*j}
+                //`;
+                
+            //}
+        //}
+       
+    }
+
+    </script>
+</body>
+</html>
+
+

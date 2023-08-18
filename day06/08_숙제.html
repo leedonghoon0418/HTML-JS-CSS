@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: rgb(9, 204, 172);
+        }
+
+        .login{
+            width: 600px;
+            height: 350px;
+            background-color: aliceblue;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .id, .password{
+            width: 500px;
+            height: 60px;
+            background-color: azure;
+            border-radius: 5px;
+            border: none;
+        }
+        .id{
+            top: 30px;
+            position: absolute;
+            left: 50px;
+        }
+        .password{
+            top: 100px;
+            position: absolute;
+            left: 50px;
+        }
+
+        .bt{
+            width: 500px;
+            height: 60px;
+            background-color: rgb(9, 204, 172);
+            color: white;
+            border-radius: 5px;
+            position: absolute;
+            top : 180px;
+            left: 50px;
+            font-size: 20px;
+            border: none;
+        }
+        .text{
+            position: absolute;
+            bottom: 10%;
+            left: 30%;
+            font-size: 20px;
+            color: gray;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="login">
+        <input type="text" class="id" placeholder="아이디를 입력해주세요"> <br>
+        <input type="password" class="password" placeholder="비밀번호를 입력해주세요"> <br>
+        <button class="bt">로그인</button>
+        <a href="" class="text">비밀번호를 잊어버리셨나요</a>
+    </div>
+</body>
+</html>

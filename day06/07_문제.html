@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배달의 민족</title>
+    <style>
+        @font-face{
+            font-family: jua;
+            src: url(/font/Jua/Jua-Regular.ttf);
+        }
+
+        body{
+            font-family: jua;
+            background-color: rgb(167, 232, 232);
+        }
+        div{
+            text-align: center;
+        }
+        .header{
+            margin: 50px;
+        }
+        .header>h1{
+            font-size: 50px;
+        }
+        .header>h3{
+            font-size: 35px;
+        }
+        .menu , .menu2 , .menu3{
+            width: 300px;
+            background-color: white;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+        .menu>div:first-child, .menu2>div:first-child, .menu3>div:first-child{
+            width: 300px;
+            height: 300px;
+            background-size: 300px 200px;
+            border-radius: 10px 10px 0px 0px;
+            background-color: rgb(255, 0, 0);    
+        }
+        .menu>div>h4, .menu2>div>h4, .menu3>div>h4{
+            font-size: 25px;
+        }
+        .menu>div:last-child, .menu2>div:last-child, .menu3>div:last-child{
+            padding: 20px;
+        }
+        .menu>div>p:last-child{
+            color: blue;
+        }
+        .menu2>div>p:last-child{
+            color: blue;
+        }
+        .menu3>div>p:last-child{
+            color: blue;
+        }
+        #shshi{
+            background-image: url(/image/초밥.jpg);
+        }
+        #chicken{
+            background-image: url(/image/치킨.jpg);
+        }
+        #pizza{
+            background-image: url(/image/피자.jpg);
+        }
+      
+      
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <h1>배달의 민족</h1>
+        <h3>넌 배달할 때가 제일 멋있어</h3>
+    </div>
+
+    <div class="menu">
+
+        <div id="shshi"></div>
+        <div>
+            <h4>맛있는 초밥</h4>
+            <p>
+                주머니가 가벼운 당신의 마음까지 생각한 착한 가격!
+            </p>
+            <p> <del>25,000원</del> 15,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+
+    <div class="menu2">
+        <div id="pizza"></div>
+        <div>
+            <h4>맛있는 피자</h4>
+            <p>
+                주머니가 가벼운 당신의 마음까지 생각한 착한 가격!
+            </p>
+            <p> <del>55,000원</del> 45,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+
+    <div class="menu3">
+        <div id="chicken"></div>
+        <div>
+            <h4>맛있는 치킨</h4>
+            <p>
+                주머니가 가벼운 당신의 마음까지 생각한 착한 가격!
+            </p>
+            <p> <del>35,000원</del> 25,000원</p>
+            <p>바로결제</p>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

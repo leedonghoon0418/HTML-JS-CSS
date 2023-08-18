@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 연습문제</title>
+    <style>
+        .naver{
+            color: blueviolet;
+        }
+        .naver:link{
+            color: brown;
+        }
+        .naver:visited{
+            color: aqua;
+        }
+        .naver:active{
+            color: red;
+        }
+        .naver:hover{
+            color: gold;
+        }
+
+        .google{
+            color: darkblue;
+        }
+        .naver:link{
+            color: brown;
+        }
+        .google:visited{
+            color: aqua;
+        }
+        .google:active{
+            color: red;
+        }
+        .google:hover{
+            color: gold;
+        }
+
+        .daum{
+            color: deeppink;
+        }
+        .naver:link{
+            color: brown;
+        }
+        .daum:visited{
+            color: aqua;
+        }
+        .daum:active{
+            color: red;
+        }
+        .daum:hover{
+            color: gold;
+        }
+        div{
+            font-size: 50px;
+
+        }
+
+       #num>li:nth-child(even){
+            color: red;
+       }
+
+       #num>li:nth-child(1){
+            font-weight: 700;
+       }
+        
+       #num>li:nth-child(10){
+            font-weight: 700;
+       }
+
+       #num>li:nth-child(3n){
+            color: green;
+       }
+
+       #num>li:hover{
+            color: aqua;
+       }
+       ul>li{
+        list-style:none;
+        display: inline;
+        margin-right: 20px;
+       }
+       /* 
+       ::after : 뒤에 붙이는 가상 값
+       ::before : 전에 붙이는 가상 값
+       */
+       li::after{
+        content:"]";
+       }
+
+       li::before{
+        content:"["
+       }
+       
+
+    </style>
+</head>
+<body>
+    <!-- 
+        div 3개를 만들어
+        1. 네이버 연결
+        2. 구글 연결
+        3. 다음 연결
+
+        각 div 는 색깔과 모양을 달리하여 스타일 주기
+        color : 글자색
+        background-color : 연색
+        폰트관련 스타일
+
+        링크 클릭했는지에 따라 글꼴 색이 달라지는 가상 선택자가 있음.
+        (의사선택자)
+        a: link(방문전)
+        a: visited(링크를 눌러본 후 색)
+        a: active(클릭할때 색)
+        
+     -->
+
+     <!-- 
+        ul -> li 태그 10개 생성
+        전체 글자크기 크게(일정하게)
+        짝수 : 색변경(ex 빨)
+        3 , 6, ,9 : (초록)
+        1, 10 : 굵게
+        :hover 
+      -->
+
+      <br>
+      <br>
+      <div style = "text-align:center;">
+        <a href="http://naver.com" target="_blank" class="naver">네이버 연결</a>
+      </div>
+      <br>
+      <br>
+      <div style = "text-align:center;">
+        <a href="http://google.com" target="_blank" class="google">구글 연결</a>
+      </div>
+      <br>
+      <br>
+      <div style = "text-align:center;">
+        <a href="http://daum.net" target="_blank" class="daum">다음 연결</a>
+      </div>
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <di >
+        <ul id="num">
+            <li>111111</li>
+            <li>222222</li>
+            <li>333333</li>
+            <li>444444</li>
+            <li>555555</li>
+            <li>666666</li>
+            <li>777777</li>
+            <li>888888</li>
+            <li>999999</li>
+            <li>000000</li>
+        </ul>
+      </div>
+
+
+</body>
+</html>

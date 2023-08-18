@@ -1,0 +1,76 @@
+@import url(/day08/01_reset.css);
+.container{
+    /* % : 부모가 기준 */
+    width: 100%;
+    /* vh : 모니터(브라우저) 높이 기준  */
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(/image/room.jpg);
+    background-size: cover;
+}
+.container .header{
+    width: 90%;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    /* 
+    flex : 블록태그들을 배치를 편하게 만듬 
+    flex는 부모 박스에 적용해야됨.
+
+    justi-contentfy : space-between : 양쪽배열
+    */ 
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.container .header h1 a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+.container .header .nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+.container .header .nav ul li{
+    margin: 0 10px;
+}
+.container .header .nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+}
+.container .header .nav ul li a:hover{
+    color: burlywood;
+}
+.container .main{
+    /* 전체 브라우저의 정 가운데 */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: white;
+}
+.container .main h2{
+    font-size: 50px;
+    margin-bottom: 20px ;
+    font-weight: 700;
+}
+.container .main button{
+    /* background-color: transparent; 투명 */
+    background-color: transparent;
+    border: 2px solid green;
+    color: white;
+    font-weight: 700;
+    padding: 15px 20px;
+    font-size: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.container .main button:hover{
+    background-color: rgb(66, 145, 66);
+    color: black;
+}

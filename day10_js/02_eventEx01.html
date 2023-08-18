@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action = "">
+        <fieldset>
+            <legend>성적확인</legend>
+            이름 : <input type="text" id = "name"> <br>
+            국어 : <input type ="text" id = "kor"><br>
+            영어 : <input type ="text" id = "eng"><br>
+            수학 : <input type ="text" id = "met"><br>
+            <button type="button" onclick="sumAvg()">성적 계산</button>
+        </fieldset>
+    </form>
+
+    <h3 id="result"></h3>
+    
+
+
+
+
+    <script>
+        // 이름 , 국어 , 영어 , 수학 점수를 입력받아
+        // 합계와 평균을 화면에 찍기
+        function sumAvg(){
+            let name = document.getElementById('name').value;
+            console.log(name);
+            let kor = document.getElementById('kor').value;
+            console.log(kor);
+            let eng = document.getElementById('eng').value;
+            console.log(eng);
+            let met = document.getElementById('met').value;
+            console.log(met);
+
+            kor=Number(kor);
+            eng=Number(eng);
+            met=Number(met);
+            //let sum = parseInt(kor) + parseInt(eng) + parseInt(met);
+            //let avg = Math.round(sum / 3); // 정수 단위로 반올림
+            
+            let sum = document.getElementById('result');
+            result.innerText = `이름 ${name} , 합계 : ${kor+eng+met}, 평균: ${(kor+eng+met)/3}`
+        }
+
+    </script>
+</body>
+</html>

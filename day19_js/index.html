@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숙제</title>
+</head>
+<style>
+    ul>a>li{
+        list-style:none;
+        display: inline;
+        margin-right: 20px;
+        font-size: 20px;
+       }
+
+    h1{
+        text-align: center;
+        border: 5px solid black;
+        font-size: 40px;
+        width: 150px;
+        height: 100px;
+        line-height: 100px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    /* 높이를 줄때 height , line-height 똑같은 값으로 주면 가운데로옴. */
+    ul>a>li:hover{
+        color: blue;
+    }
+    ul{
+         margin: auto;
+         width: 400px;
+         text-align: center;
+
+    }
+
+    li{
+        list-style: none;
+    }
+</style>
+<body>
+    <h1> Travel </h1>
+    <ul>
+        <li><a href="#" id="home" onclick="" class="">Home</a></li>
+        <li><a href="#" id="busan" onclick="clickCity(this)">busan</a></li>
+        <li><a href="#" id="incheon" onclick="clickCity(this)">incheon</a></li>
+        <li><a href="#" id="seoul" onclick="clickCity(this)">seoul</a></li>
+    </ul>
+   
+        <img src="" alt="" id="cityImg">
+    
+    
+    <script>
+        const clickCity = (elem) =>{
+            console.log(elem);
+            console.log(elem.id);
+            let idVal = elem.id;
+            document.getElementById("cityImg").src = `/image/${idval}.jpg`;
+        }
+
+       
+    </script>
+
+</body>
+</html>
